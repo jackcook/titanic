@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Will you survive?</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+    <form class="form-horizontal" action="http://localhost:5000/submit">
+        <fieldset>
+            <legend>Will you survive?</legend>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="firstname">First Name</label>
+                <div class="col-md-4">
+                    <input id="firstname" name="firstname" type="text" placeholder="Jack" class="form-control input-md" required="">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="lastname">Last Name</label>
+                <div class="col-md-4">
+                    <input id="lastname" name="lastname" type="text" placeholder="Cook" class="form-control input-md" required="">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="gender">Gender</label>
+                <div class="col-md-4">
+                    <div class="radio">
+                        <label for="gender-0">
+                            <input type="radio" name="gender" id="gender-0" value="0" checked="checked">
+                            Male
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label for="gender-1">
+                            <input type="radio" name="gender" id="gender-1" value="1">
+                            Female
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="age">Age</label>
+                <div class="col-md-4">
+                    <label class="radio-inline" for="age-0">
+                        <input type="radio" name="age" id="age-0" value="16" checked="checked">
+                        16
+                    </label>
+                    <label class="radio-inline" for="age-1">
+                        <input type="radio" name="age" id="age-1" value="17">
+                        17
+                    </label>
+                    <label class="radio-inline" for="age-2">
+                        <input type="radio" name="age" id="age-2" value="18">
+                        18
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="siblings">Number of Siblings</label>
+                <div class="col-md-4">
+                    <label class="radio-inline" for="siblings-0">
+                        <input type="radio" name="siblings" id="siblings-0" value="0" checked="checked">
+                        0
+                    </label>
+                    <label class="radio-inline" for="siblings-1">
+                        <input type="radio" name="siblings" id="siblings-1" value="1">
+                        1
+                    </label>
+                    <label class="radio-inline" for="siblings-2">
+                        <input type="radio" name="siblings" id="siblings-2" value="2">
+                        2
+                    </label>
+                    <label class="radio-inline" for="siblings-3">
+                        <input type="radio" name="siblings" id="siblings-3" value="3">
+                        3
+                    </label>
+                    <label class="radio-inline" for="siblings-4">
+                        <input type="radio" name="siblings" id="siblings-4" value="4">
+                        4
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="submit"></label>
+                <div class="col-md-4">
+                    <button id="submit" name="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</body>
+</html>

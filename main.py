@@ -52,7 +52,6 @@ freq_port = train_df.Embarked.dropna().mode()[0]
 test_df["Fare"].fillna(test_df["Fare"].dropna().median(), inplace=True)
 
 for dataset in combine:
-    dataset["Age*Class"] = dataset.Age * dataset.Pclass
     dataset["Embarked"] = dataset["Embarked"].fillna(freq_port)
     dataset["Embarked"] = dataset["Embarked"].map({"S": 0, "C": 1, "Q": 2}).astype(int)
 
