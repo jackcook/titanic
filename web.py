@@ -23,4 +23,4 @@ def submit():
     return app.send_static_file("survived.html" if survival[0] else "died.html")
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()

@@ -52,7 +52,7 @@ def predict(sex, age, siblings, parents):
 def train():
     train_df = pd.read_csv("./input/train.csv").drop(["PassengerId", "Ticket", "Cabin"], axis=1)
 
-    train_df["Title"] = train_df.Name.str.extract(" ([A-Za-z]+)\.", expand=False) \
+    train_df["Title"] = train_df.Name.str.extract(" ([A-Za-z]+)\.") \
         .replace(["Lady", "Countess", "Capt", "Col", "Don", "Dr", "Major", "Rev", "Sir", "Jonkheer", "Dona"], "Rare") \
         .replace("Mlle", "Miss") \
         .replace("Ms", "Miss") \
