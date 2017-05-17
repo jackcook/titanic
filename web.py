@@ -20,7 +20,7 @@ def submit():
     parents = 2
 
     survival = predict(gender, age, siblings, parents)
-    return ("You survived!" if survival[0] else "You died :(") + " You were placed in class %d, fare band %d, and port %d" % (survival[1], survival[2], survival[3])
+    return app.send_static_file("survived.html" if survival[0] else "died.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
