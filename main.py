@@ -36,11 +36,6 @@ def clean(dataset):
     dataset["Embarked"] = dataset["Embarked"].map({"S": 0, "C": 1, "Q": 2}).astype(int)
 
     dataset["Fare"].fillna(dataset["Fare"].dropna().median(), inplace=True)
-    dataset.loc[dataset["Fare"] <= 7.91, "Fare"] = 0
-    dataset.loc[(dataset["Fare"] > 7.91) & (dataset["Fare"] <= 14.454), "Fare"] = 1
-    dataset.loc[(dataset["Fare"] > 14.454) & (dataset["Fare"] <= 31), "Fare"] = 2
-    dataset.loc[dataset["Fare"] > 31, "Fare"] = 3
-    dataset["Fare"] = dataset["Fare"].astype(int)
 
     return dataset.drop(["Name", "Parch", "SibSp", "FamilySize"], axis=1)
 
