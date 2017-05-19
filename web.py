@@ -7,7 +7,7 @@ from sklearn.linear_model import LogisticRegression
 from main import clean
 
 app = Flask(__name__)
-train_df = clean(pd.read_csv("./input/train.csv").drop(["PassengerId", "Ticket", "Cabin"], axis=1))
+train_df = clean(pd.read_csv("./input/train.csv").drop("PassengerId", axis=1))
 
 def predict(sex, age, siblings, parents):
     global train_df

@@ -35,11 +35,11 @@ def clean(dataset):
 
     dataset["Fare"].fillna(dataset["Fare"].dropna().median(), inplace=True)
 
-    return dataset.drop(["Name", "Parch", "SibSp"], axis=1)
+    return dataset.drop(["Cabin", "Name", "Parch", "SibSp", "Ticket"], axis=1)
 
 if __name__ == "__main__":
-    train_df = clean(pd.read_csv("./input/train.csv").drop(["PassengerId", "Ticket", "Cabin"], axis=1))
-    test_df = clean(pd.read_csv("./input/test.csv").drop(["Ticket", "Cabin"], axis=1))
+    train_df = clean(pd.read_csv("./input/train.csv").drop("PassengerId", axis=1))
+    test_df = clean(pd.read_csv("./input/test.csv"))
 
     X_train = train_df.drop("Survived", axis=1)
     Y_train = train_df["Survived"]
