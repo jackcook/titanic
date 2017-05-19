@@ -44,16 +44,17 @@ def clean(dataset):
 
     return dataset.drop(["Name", "Parch", "SibSp", "FamilySize"], axis=1)
 
-train_df = clean(pd.read_csv("./input/train.csv").drop(["PassengerId", "Ticket", "Cabin"], axis=1))
-test_df = clean(pd.read_csv("./input/test.csv").drop(["Ticket", "Cabin"], axis=1))
+if __name__ == "__main__":
+    train_df = clean(pd.read_csv("./input/train.csv").drop(["PassengerId", "Ticket", "Cabin"], axis=1))
+    test_df = clean(pd.read_csv("./input/test.csv").drop(["Ticket", "Cabin"], axis=1))
 
-X_train = train_df.drop("Survived", axis=1)
-Y_train = train_df["Survived"]
-X_test = test_df.drop("PassengerId", axis=1).copy()
+    X_train = train_df.drop("Survived", axis=1)
+    Y_train = train_df["Survived"]
+    X_test = test_df.drop("PassengerId", axis=1).copy()
 
-logreg = LogisticRegression()
-logreg.fit(X_train, Y_train)
-Y_pred = logreg.predict(X_test)
+    logreg = LogisticRegression()
+    logreg.fit(X_train, Y_train)
+    Y_pred = logreg.predict(X_test)
 
-submission = pd.DataFrame({"PassengerId": test_df["PassengerId"], "Survived": Y_pred})
-submission.to_csv("./output/submission.csv", index=False)
+    submission = pd.DataFrame({"PassengerId": test_df["PassengerId"], "Survived": Y_pred})
+    submission.to_csv("./output/submission.csv", index=False)
