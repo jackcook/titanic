@@ -1,5 +1,4 @@
 import pandas as pd
-import seaborn as sns
 from sklearn.linear_model import LogisticRegression
 
 def clean(dataset):
@@ -27,9 +26,8 @@ def clean(dataset):
     dataset.loc[(dataset["Age"] > 48) & (dataset["Age"] <= 64), "Age"] = 3
     dataset.loc[dataset["Age"] > 64, "Age"] = 4
 
-    dataset["FamilySize"] = dataset["SibSp"] + dataset["Parch"] + 1
     dataset["IsAlone"] = 0
-    dataset.loc[dataset["FamilySize"] == 1, "IsAlone"] = 1
+    dataset.loc[(dataset["SibSp"] == 0) & (dataset["Parch"] == 0), "IsAlone"] = 1
 
     freq_port = dataset.Embarked.dropna().mode()[0]
     dataset["Embarked"] = dataset["Embarked"].fillna(freq_port)
@@ -37,7 +35,7 @@ def clean(dataset):
 
     dataset["Fare"].fillna(dataset["Fare"].dropna().median(), inplace=True)
 
-    return dataset.drop(["Name", "Parch", "SibSp", "FamilySize"], axis=1)
+    return dataset.drop(["Name", "Parch", "SibSp"], axis=1)
 
 if __name__ == "__main__":
     train_df = clean(pd.read_csv("./input/train.csv").drop(["PassengerId", "Ticket", "Cabin"], axis=1))
